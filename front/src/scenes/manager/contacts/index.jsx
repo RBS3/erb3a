@@ -4,6 +4,7 @@ import { tokens } from "../../../theme";
 import { mockDataContacts } from "../../../data/mockData";
 import Header from "../../../components/header";
 import { useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const Contacts = () => {
   const theme = useTheme();
@@ -51,7 +52,16 @@ const Contacts = () => {
       flex: 1,
     },
   ];
-
+  const Header = ({ title, subtitle, subtitleSx = {} }) => {
+    return (
+      <Box mb="20px">
+        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h5" sx={{ color: "#6d74e8" }}>
+          {subtitle}
+        </Typography>
+      </Box>
+    );
+  };
   return (
     <Box m="20px">
       <Header
@@ -69,18 +79,18 @@ const Contacts = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: "#8b8fea",
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor:"#6d74e8",
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: "transparent",
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: "#6d74e8",
           },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,

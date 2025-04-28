@@ -24,10 +24,7 @@ const Topbar = ()=> {
         </Box>
         {/*icons section*/}
         <Box display="flex">
-            
-            <IconButton>
-                <NotificationsOutlinedIcon/>
-            </IconButton>
+        
             <IconButton>
                 <SettingsOutlinedIcon/>
             </IconButton>

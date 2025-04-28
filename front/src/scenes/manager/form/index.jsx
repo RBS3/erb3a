@@ -27,7 +27,24 @@ const Form = () => {
       alert("❌ Failed to create user. Try again.");
     }
   };
-
+  const Header = ({ title, subtitle }) => {
+    return (
+      <Box>
+        <Typography
+          variant="h3"
+          sx={{ color: "#ffff" }}
+        >
+          {title}
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{ color: "#6d74e8" }} 
+        >
+          {subtitle}
+        </Typography>
+      </Box>
+    );
+  };
   return (
     <Box m="20px">
       <Header title="CREATE USER" subtitle="Create a New User Profile" />
@@ -148,14 +165,23 @@ const Form = () => {
                   <MenuItem value="Recruiter">Recruiter</MenuItem>
                 </Select>
                 {touched.role && errors.role && (
-                  <Typography variant="caption" color="error">
+                  <Typography variant="caption" color="#6d74e8">
                     {errors.role}
                   </Typography>
                 )}
               </FormControl>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: "#6d74e8",
+                  "&:hover": {
+                    backgroundColor: "#4f61d6", // Darker hover effect
+                  },
+                }}
+              >
                 Create New User
               </Button>
             </Box>

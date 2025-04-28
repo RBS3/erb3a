@@ -21,12 +21,16 @@ import Password from "./scenes/accountant/updateinfo/password.jsx";
 import Phone from "./scenes/accountant/updateinfo/phone.jsx";
 import Updateinfo from "./scenes/accountant/updateinfo/updateinfo.jsx";  // Corrected path
 
-import AccountantNotifications from "./scenes/accountant/notifications.jsx";
-
 // Candidate
-import Apply from "./scenes/candidate/apply";
-import CandidateDashboard from "./scenes/candidate/dashboard";
-
+import Apply from "./scenes/candidate/apply/apply.jsx";
+import Dashboard from "./scenes/candidate/dashboard/index.jsx";
+import changeAddress from "./scenes/candidate/update/address.jsx";
+import changeEmail from "./scenes/candidate/update/email.jsx";
+import changeName from "./scenes/candidate/update/name.jsx";
+import changePassword from "./scenes/candidate/update/password.jsx";
+import changePhone from "./scenes/candidate/update/phone.jsx";
+import Updateall from "./scenes/candidate/update/updateinfo.jsx";
+import Header from "./scenes/candidate/apply/header.jsx";
 // Employee
 import EmployeeDashboard from "./scenes/employee/dashboard";
 import RequestLeave from "./scenes/employee/requestleave/requestleave";
@@ -38,6 +42,16 @@ import ManagerDashboard from "./scenes/manager/dashboard";
 import Form from "./scenes/manager/form";
 import Requests from "./scenes/manager/invoices";
 import Team from "./scenes/manager/team";
+import ReportPage from "./scenes/manager/reports/generate"; 
+import Addressm from "./scenes/manager/updateinfo/address.jsx";
+import Emailm from "./scenes/manager/updateinfo/email.jsx";
+import ChangeNamem from "./scenes/manager/updateinfo/name.jsx";
+import Passwordm from "./scenes/manager/updateinfo/password.jsx";
+import Phonem from "./scenes/manager/updateinfo/phone.jsx";
+import Updateinfom from "./scenes/manager/updateinfo/updateinfo.jsx";
+// Ensure this path is correct
+
+
 // Removed ManagerApproveLeaves since it's not needed for now
 
 function App() {
@@ -48,7 +62,7 @@ function App() {
     document.body.style.backgroundColor = theme.palette.background.default;
   }, [theme]);
   // Simulated user role (replace with real auth state or context)
-  const userRole = localStorage.getItem("role") || "accountant"; // Example
+  const userRole = localStorage.getItem("role") || "manager"; // Example
 
   const renderRoutes = () => {
     switch (userRole) {
@@ -71,8 +85,14 @@ function App() {
       case "candidate":
         return (
           <>
-            <Route path="/" element={<CandidateDashboard />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/apply" element={<Apply />} />
+            <Route path="/update" element={<Update />} />
+            <Route path="/update/address" element={<Address />} />
+            <Route path="/update/email" element={<Email />} />
+            <Route path="/update/name" element={<Name />} />
+            <Route path="/update/password" element={<Password />} />
+            <Route path="/update/phone" element={<Phone />} />
           </>
         );
       case "employee":
@@ -98,6 +118,13 @@ function App() {
             <Route path="/form" element={<Form/>} />
             <Route path="/invoices" element={<Requests/>} />
             <Route path="/contacts" element={<Contacts/>} />
+            <Route path="/reports" element={<ReportPage/>} />
+            <Route path="/updateinfo" element={<Updateinfo />} />
+            <Route path="/update/address" element={<Addressm />} />
+            <Route path="update/email" element={<Emailm />} />
+            <Route path="update/name" element={<ChangeNamem />} />
+            <Route path="update/password" element={<Passwordm />} />
+            <Route path="update/phone" element={<Phonem />} />
           </>
         );
       default:

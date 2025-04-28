@@ -108,7 +108,16 @@ const Team = () => {
       },
     },
   ];
-
+  const Header = ({ title, subtitle }) => {
+    return (
+      <Box mb={2}>
+        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h5" sx={{ color: "#6d74e8" }}>
+          {subtitle}
+        </Typography>
+      </Box>
+    );
+  };
   return (
     <Box m="20px">
       <Header title="TEAM" subtitle="Managing the Team Members" />
@@ -123,18 +132,18 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: "#6d74e8",
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: "#6d74e8",
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: "transparent",
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: "#6d74e8",
           },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
