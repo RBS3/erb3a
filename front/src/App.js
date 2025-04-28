@@ -62,7 +62,7 @@ function App() {
     document.body.style.backgroundColor = theme.palette.background.default;
   }, [theme]);
   // Simulated user role (replace with real auth state or context)
-  const userRole = localStorage.getItem("role") || "manager"; // Example
+  const userRole = localStorage.getItem("role") || "accountant"; // Example
 
   const renderRoutes = () => {
     switch (userRole) {
