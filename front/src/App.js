@@ -62,7 +62,7 @@ function App() {
     document.body.style.backgroundColor = theme.palette.background.default;
   }, [theme]);
   // Simulated user role (replace with real auth state or context)
-  const userRole = localStorage.getItem("role") || "accountant"; // Example
+  const userRole = localStorage.getItem("role") || "manager"; // Example
 
   const renderRoutes = () => {
     switch (userRole) {
@@ -88,11 +88,11 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/update" element={<Update />} />
-            <Route path="/update/address" element={<Address />} />
-            <Route path="/update/email" element={<Email />} />
-            <Route path="/update/name" element={<Name />} />
-            <Route path="/update/password" element={<Password />} />
-            <Route path="/update/phone" element={<Phone />} />
+            <Route path="/update/address" element={<changeAddress />} />
+            <Route path="/update/email" element={<changeEmail />} />
+            <Route path="/update/name" element={<changeName />} />
+            <Route path="/update/password" element={<changePassword />} />
+            <Route path="/update/phone" element={<changePhone />} />
           </>
         );
       case "employee":
